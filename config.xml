@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="de.psicon.markengeheimnisse" version="2.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" versionCode = "2001">
+  <name>MarkenDetektive</name>
+  <description>
+        An Ionic Framework and Cordova project.
+    </description>
+  <author email="hi@ionicframework" href="http://ionicframework.com/">
+      Ionic Framework Team
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <!-- for iOS -->
+  <feature name="Flashlight">
+      <param name="ios-package" value="Flashlight" />
+  </feature>
+  <!-- for Android -->
+  <feature name="Flashlight">
+      <param name="android-package" value="nl.xservices.plugins.Flashlight" />
+  </feature>
+  
+</widget>

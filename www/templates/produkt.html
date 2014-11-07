@@ -1,0 +1,166 @@
+<ion-view title="Produkt">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+      <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button> 
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="padding-left" ng-hide="Produkte.length" ng-controller="zanoxCtrl">
+         
+        <!--
+  <div style="text-align:center;" ng-bind-html="myhtml">
+        	<i class="icon-left icon ion-loading-d" style="font-size:24px;" ></i><h3 >Suche in externer Datenbank läuft...</h3> 
+        </div>         -->
+       <div  style="text-align:center;" ng-bind-html="myhtml">
+ 					{{myhtml}}
+         </div>  
+         
+
+
+
+<ion-list ng-show="many > 1" class="list" >      			      
+ <div class="listimagedivonline">
+                 <img ng-show="produkt.Images[0][0].URL != null" ng-click="openlinkext('{{produkt.Deeplink1}}')" class="produktlistimg" src="{{produkt.Images[0][0].URL}}">
+                 
+                  <img ng-show="produkt.Images[0][0].URL == null" ng-click="openlinkext('{{produkt.Deeplink1}}')" class="produktlistimg" src="http://www.psicon.de/discountermarken/ionic/img/noimage-b1.jpg">
+        </div>  
+    <div   ng-show="showzanox" ng-repeat="produkt in produkte.Products">
+<ion-item  ng-click="openlinkext('{{produkt.Deeplink1}}')">           
+<p style="margin-right:15pt; white-space: pre-line; color:#b6db49; font-size:18px;"><b>{{produkt.ProductName}}</b></p>
+ <p>{{many}} Preise gefunden:</p>
+
+  
+                      <span class="item-icon-right">
+
+<p style="margin-right:15pt; text-align:left;"><b style="color:#b6db49; font-size:18px;">{{produkt.PriceInformation.DisplayPrice}}</b> <br><i style=" font-size:10px; overflow: hidden; text-overflow: ellipsis;">{{produkt.DescriptionShort}}<br>bei: {{produkt.ShopTitle}}<br><img src="{{produkt.Logos[0].URL}}" style="width:{{produkt.Logos[0].Width}}; height:{{produkt.Logos[0].Height}}; align-content:left; text-align:left;"></img></i></p>
+
+<!--<div class="button-bar">
+
+                                <a  ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.ProductName}}','{{produkt.PriceInformation.DisplayPrice}}')" class="button button-small button-outline icon ion-ios7-plus-outline button-energized">  Liste   </a>  -  <a ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{produkt.Images[0][0].URL.large}}')" class="button button-icon  button-outline button-positive button-small icon ion-social-facebook-outline">acebook  </a>
+                               <!-- </div>
+                  <button class="button button-full button-outline icon-left ion-ios7-cart-outline button-assertive" ng-click="openlinkext('{{produkt.Deeplink1}}')"><b>{{produkt.PriceInformation.DisplayPrice}} {{einzelprodukt.currency}}</b> bei {{produkt.ShopTitle}}</button></p>
+                 
+                         		<!--<p><b>Beschreibung: </b>{{produkt.Description}} </p>    -->       
+                        <i class="icon ion-ios7-arrow-right"></i>
+
+                        			 </span>
+<ion-option-button class="button-calm icon ion-ios7-paper-outline" style="vertical-align:middle;"
+                             ng-click="openlinkext('{{produkt.Deeplink1}}')">
+            Details
+          </ion-option-button>
+<ion-option-button class="button-energized icon ion-ios7-plus-outline" style="vertical-align:middle;"
+                             ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.ProductName}}','{{produkt.PriceInformation.DisplayPrice}}')">
+            Liste
+          </ion-option-button>
+          <ion-option-button class="button-positive icon ion-social-facebook-outline" style="vertical-align:middle;"
+                             ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{produkt.Images[0][0].URL.large}}')">acebook</ion-option-button>
+                           </ion-item>
+   
+      </div >
+      
+     </ion-list>
+
+        	
+    <div  class="item item-text-wrap" ng-show="many == 1" ng-repeat="produkt in produkte.Products">
+			
+            <h3> <b>{{produkt.ProductName}}</b></h3>
+                    <img ng-show="produkt.Images[0][0].URL != null" ng-click="openlinkext('{{produkt.Deeplink1}}')" class="produktdetail" src="{{produkt.Images[0][0].URL}}">
+                 
+                  <img ng-show="produkt.Images[0][0].URL == null" ng-click="openlinkext('{{produkt.Deeplink1}}')" class="produktdetail" src="http://www.psicon.de/discountermarken/ionic/img/noimage-b1.jpg">
+                 
+                 <button class="button button-full button-small button-outline button-assertive" ng-click="openlinkext('{{produkt.Deeplink1}}')"><b>{{produkt.PriceInformation.DisplayPrice}} </b> <br>bei {{produkt.ShopTitle}} <img src="{{produkt.Logos[0].URL}}" style="width:{{produkt.Logos[0].Width}}; height:{{produkt.Logos[0].Height}};"></img></button>    
+                  				<p><b>Kategorie: </b>{{produkt.AffilinetCategoryPath}} </p> 
+                         		<p><b>Beschreibung: </b>{{produkt.Description}} </p>           
+                                 <div class="button-bar">
+
+                                <a  ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.EAN}}','{{produkt.PriceInformation.DisplayPrice}}')" class="button button-small button-outline icon ion-ios7-plus-outline button-energized"> Liste</a><a ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{produkt.Images[0][0].URL}}')" class="button button-icon  button-outline button-positive button-small icon ion-social-facebook-outline">acebook</a></div>
+<button ng-click="openlinkext('{{produkt.Deeplink1}}')"  class="button button-outline button-block icon-left ion-ios7-cart-outline button-balanced" > Zum Shop</button><hr>
+       </div> 
+   
+           <div class="item item-text-wrap" ng-show="showzanox2" ng-repeat="produkt in produkte.productItems">
+<div ng-repeat="einzelprodukt in produkt">
+<img  ng-show="einzelprodukt.image.large != null" class="produktdetail" src="{{einzelprodukt.image.large}}">
+<img  ng-show="einzelprodukt.image.medium != null" class="produktdetail" src="{{einzelprodukt.image.medium}}">
+                 <img  ng-show="einzelprodukt.image.small != null" class="listimagedivonlinesmall" src="{{einzelprodukt.image.small}}">                 
+                 <h3><b>{{produkt.ProductName}}</b> <p><b style="color:red;">{{produkt.PriceInformation.DisplayPrice}} </b> bei {{produkt.ShopTitle}}</p></h3>
+                 				<p><b>Kategorie: </b>{{produkt.AffilinetCategoryPath}} </p> 
+                         		<p><b>Beschreibung: </b>{{produkt.DescriptionShort}} </p>          
+                                                                <div class="button-bar">
+
+                                <a  ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.EAN}}','{{produkt.PriceInformation.DisplayPrice}}')" class="button button-small button-outline icon ion-ios7-plus-outline button-energized"> Liste</a><a ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{einzelprodukt.image.large}}')" class="button button-icon  button-outline button-positive button-small icon ion-social-facebook-outline">acebook</a></div>
+<button ng-click="openlinkamazon('{{produkt.ProductName}}')"  class="button button-outline button-block icon-left ion-ios7-cart-outline button-balanced" > Weitere Preise suchen...</button><hr>
+                           </div>   
+      </div>
+      <hr>
+      <p class="icon-left icon ion-ios7-help-outline"> Kennst du ein passendes Geheimnis zu diesem Produkt?</p>       	
+ <a class="item item-icon-left" menu-close  href="#/app/wizard0">
+        <i class="icon ion-compose"></i>
+Jetzt erfassen!</a> <hr>      
+	</div>
+        
+      
+    
+    
+    <div class="row responsive-sm" ng-show="Produkte.length" >
+     <div class="col">
+     
+     <h3>Discounterprodukte</h3>
+ 
+          <div class="card" class="col"  ng-repeat="Produkt in Produkte" ng-show="Produkt.dpID">
+           <div class="listimagediv">
+               </div>
+            <div class="item item-text-wrap">
+                           <img class="produktdetail" src="http://www.psicon.de/discountermarken/img/discounterprodukte/{{Produkt.dpBild}}">
+
+        		<h3><b>{{Produkt.dpBeschreibung}}</b> <p>bei {{Produkt.disDiscounter}} </p><img class="listimage" style="float:right;" src="http://www.psicon.de/discountermarken/img/discounter/{{Produkt.Bild}}"></h3>
+        		<p><b>Preis: </b>{{Produkt.dpPreis}} €</p>
+                 
+        		<p><b>Packung: </b>{{Produkt.dpPackungsgroesse}} {{Produkt.peBezeichnung}}</p>
+        		<p>Ersparnis: <b style="color:#61D33A">{{Produkt.Ersparnis}} %</b></p>
+                <hr>
+                                <div class="button-bar">
+<a  ng-click="addtocart( '{{Produkt.dpBeschreibung}}' ,'{{Produkt.disDiscounter}}','{{Produkt.dpEAN}}','{{Produkt.dpPreis}}')" class="button button-small button-outline icon ion-ios7-plus-outline button-energized"> Liste</a>  	<a ng-click="shareonfb('Wahnsinn! Hinter {{Produkt.dpBeschreibung}} bei {{Produkt.disDiscounter}} steckt tatsächlich das Markenprodukt {{Produkte[0].mpBezeichnung}}! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','http://www.psicon.de/discountermarken/img/discounter/{{Produkt.Bild}}')" class="button button-icon  button-outline button-positive button-small icon ion-social-facebook-outline">acebook</a> </div>
+ <button ng-click="getPreis('{{Produkt.dpBeschreibung}}')"  class="button button-outline button-block icon-left ion-ios7-search button-balanced" > "Bester Preis"-Suche</button><a class="button button-block button-outline button-assertive button-icon-left button-small ion-clipboard" href="mailto:?subject=MarkenDetektive Fehler in Produkt: {{Produkt.dpBeschreibung}} - {{Produkt.dpEAN}} "> Fehler melden</a>
+            </div>
+        	</div>
+           <div class="card" class="col"  ng-repeat="Produkt in Produkte" ng-hide="Produkt.dpID">
+           	<p>Kein passendes Discounterprodukt in der Datenbank gefunden</p>
+            	<hr>
+               <p>Kennst du passende Discounterprodukte? Erfasse sie jetzt und teile dein Geheimnis:</p>
+               <a href="#/app/wizard0"  class="button button-outline button-block icon-left ion-ios7-pluss-outline button-balanced" >Jetzt erfassen!</a>
+			</div>
+            
+           
+ 
+      <div class="col" >
+      <h3>Markenprodukt</h3>
+
+          <div class="card" class="col"  ng-show="Produkte[0].mpID">
+ 
+            <div class="item item-text-wrap">
+<img class="produktdetail" src="http://www.psicon.de/discountermarken/img/markenprodukte/{{Produkte[0].mpBild}}">
+
+        		<h3><b>{{Produkte[0].mpBezeichnung}} </b></h3>
+        		<p><b>Preis: </b>{{Produkte[0].mpPreis}} €</p>
+                <div   ng-show="showonlineangebote"  >
+            <b>Aktuelle Onlineangebote:</b>
+						  <div ng-repeat="onlineprodukt in onlineprodukte.Products  | slice:0:4|orderBy:'PriceInformation.DisplayPrice':false">  
+ 						<button class="button button-block button-small button-outline icon-left ion-ios7-cart-outline button-assertive" ng-click="openpreisvergleich('{{onlineprodukt.Deeplink1}}', '{{onlineprodukt.ProductId}}', '{{onlineprodukt.EAN}}')" style="font-size:10px; overflow: hidden; text-overflow: ellipsis;"><b>jetzt für {{onlineprodukt.PriceInformation.DisplayPrice}} bestellen</b><br><i style="font-size:10px; overflow: hidden; text-overflow: ellipsis; white-space:nowrap; width:80%;">{{onlineprodukt.ProductName}}</i><br> bei {{onlineprodukt.ShopTitle}}</button>
+                        </div>
+						</div>
+                <p><b>Packung: </b>{{Produkte[0].mpPackungsgroesse}} {{Produkte[0].peBezeichnung}}</p>
+              
+        		<p><b>(Unnützes-)Wissen: </b>{{Produkte[0].mpBeschreibung}} </p>          <hr>
+                <div class="button-bar">
+<a ng-repeat="Produkt in Produkte | slice:0:1" ng-click="addtocart( '{{Produkte[0].mpBezeichnung}}' ,'Markenprodukt','{{Produkte[0].mpEAN}}', '{{Produkte[0].mpPreis}}')"  class="button button-small button-icon button-outline  icon ion-ios7-plus-outline button-energized "> Liste</a>  <a ng-repeat="Produkt in Produkte | slice:0:1" ng-click="shareonfb('Wahnsinn! Hinter {{Produkt[0].dpBeschreibung}} bei {{Produkte[0].disDiscounter}} steckt tatsächlich das Markenprodukt {{Produkte[0].mpBezeichnung}}! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','http://www.psicon.de/discountermarken/img/discounter/{{Produkt.Bild}}')" class="button button-icon   button-outline button button-positive button-small icon ion-social-facebook-outline">acebook</a></div>
+<button ng-repeat="Produkt in Produkte | slice:0:1" ng-click="getPreis('{{Produkte[0].mpBezeichnung}}')" class="button button-outline button-block icon-left ion-ios7-search button-balanced" > "Bester Preis"-Suche</button><a class="button button-small button-block button-outline button-assertive button-icon-left ion-clipboard" href="mailto:?subject=MarkenDetektive Fehler in Produkt: {{Produkte[0].mpBezeichnung}} - {{Produkte[0].mpEAN}} "> Fehler melden</a> </div>
+        	</div>
+           
+</div>
+   </div>
+</div>
+  </ion-content>
+</ion-view>

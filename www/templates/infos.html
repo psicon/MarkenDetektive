@@ -1,0 +1,168 @@
+<ion-view title="Infos">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+   <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button> 
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+
+  <ion-tabs class="tabs-balanced tabs-icon-top slide-left-right">
+  		 <ion-content class="has-header">
+
+  
+
+  <ion-tab title="Tipps&Tricks" icon-on="ion-ios7-lightbulb" icon-off="ion-ios7-lightbulb-outline">
+         <!-- Tab 2 content -->
+ 
+<ion-slide-box on-slide-changed="slideHasChanged($index)"  style="height:100%" >
+ 
+            		  <ion-slide style="height:100%">
+    		 <ion-content class="has-header"><br>
+                     <div class="list card">
+                    <h3>Wie auch du ganz schnell zu einem Markendetektiv wirst...</h3>
+                    <hr><br>
+Auf den folgenden Slides haben wir dir ein paar Tipps zusammengestellt wie auch du Produktgeheimnisse enttarnst, den Herstellern auf die Schliche kommst und somit bei deinem nächsten Supermarktbesuch vielleicht eher eine Menge Spaß anstatt dem alltäglichen Einkaufsstress haben wirst!<br><br>Wenn du Produkte enttarnt hast, behalte es jedoch bitte nicht für dich sondern teile es mit uns und den anderen Nutzern um die Community wachsen zu lassen! <br><br><br>
+     <i class="item item-icon-center  button-block">
+        <i class="icon ion-ios7-arrow-thin-left">  Slide nach links  </i><i class="icon ion-ios7-arrow-thin-left"></i>
+ </i>
+</div> <br><br>
+</ion-content>
+</ion-slide>
+  <ion-slide style="height:100%">
+  <ion-content class="has-header">
+<br>
+<div class="list card">
+             		<h3>1. Veterinärkontrollnummern prüfen!</h3><br>
+            		<p>Bei tierischen Produkten ist es sehr leicht den Hersteller zu ermitteln. Die Veterinärkontrollnummer, kurz: Veterinärnummer, ist eine vorgeschriebene Deklaration der Produktionsstätte, die EU-weit auf allen Produkten tierischer Herkunft zu finden ist.<br>                           <img class="kontrollnummer" src="./img/kontrollnummer.png"><br>
+<br>Über diese Nummern ist es somit also möglich die Herkunft von allen Fleisch-, Fisch- und Milchprodukten in kürzester Zeit zu ermitteln. <br>Hierfür kannst du unsere Kontrollnummerdatenbank verwenden:<br><br></p><button class="item item-icon-left button-block button-balanced " menu-close href="#/app/kontrollnummernauswahl">
+        <i class="icon ion-ios7-bookmarks-outline"></i>
+			Kontrollnummerdatenbank
+       </button><br>
+       Um den Herstellerbetrieb eines tierischen Lebensmittels feststellen zu können ist - mit Ausnahme der Genusstauglichkeitskennzeichnung bei Schlachtkörpern - seit dem 1.1.2006 ein sogenanntes Identitätskennzeichen anzubringen. Dieses ist zur Kontrolle durch die zuständigen Behörden bestimmt und löst die bisherige Angabe von Veterinärkontrollnummern ab.
+Findet die Herstellung eines Lebensmittels einschließlich Verpackung an mehreren Standorten statt, so ist das Kennzeichen immer beim zuletzt erfolgten Schritt der Herstellung anzubringen.
+
+Die Betriebe, an die die Zulassungsnummern vergeben werden, müssen die strengen EU-weit gültigen Hygienevorschriften erfüllen. Dies gilt auch bei der Einfuhr von tierischen Lebensmitteln.
+
+Die Verwendung des Identitätskennzeichens ist nur bei der Produktion von tierischen Lebensmitteln vorgeschrieben. Sobald ein weiterverarbeitender Betrieb ein fertig hergestelltes tierisches Lebensmittel zusammen mit pflanzlichen Lebensmitteln (wie z.B. bei einer Thunfischpizza) verarbeitet, ist die Angabe nicht mehr vorgeschrieben.<br>
+ <br>  <h4>Kennzeichnung beim Hühnerei:</h4>  
+ <img class="kontrollnummer" src="./img/erzeugercode.gif">
+ <p>Die erste Ziffer des Erzeugercodes beschreibt die Haltungsform:</p>
+ <ul>
+ <li>0: ökologische Erzeugung</li>
+ <li>1: Freilandhaltung</li>
+ <li>2: Bodenhaltung</li>
+ <li>3: Käfighaltung</li>
+</ul> 
+<hr>
+    <p>Eine zweistellige Buchstabenkombination gibt das Herkunftsland an (das Land der Erzeugung), z. B:</p>
+ <ul>
+ <li>DE: Deutschland</li>
+ <li>AT: Österreich</li>
+ <li>DK: Dänemark</li>
+ <li>NL: Niederlande</li>
+ <li>FR: Frankreich</li>
+</ul>   <hr>
+ <p>Es folgt die sechsstellige Betriebsnummer. Bei deutschen Eiern ist aus den ersten beiden Ziffern das Bundesland erkennbar, in dem der Betrieb liegt.</p>
+ <ul>
+    <li>01	Schleswig-Holstein</li>
+    <li>02	Hamburg</li>
+    <li>03	Niedersachsen</li>
+    <li>04	Bremen</li>
+    <li>05	Nordrhein-Westfalen</li>
+    <li>06	Hessen</li>
+    <li>07	Rheinland-Pfalz</li>
+    <li>08	Baden-Württemberg</li>
+    <li>09	Bayern</li>
+    <li>10	Saarland</li>
+    <li>11	Berlin</li>
+    <li>12	Brandenburg</li>
+    <li>13	Mecklenburg-Vorpommern</li>
+    <li>14	Sachsen</li>
+    <li>15	Sachsen-Anhalt</li>
+    <li>16	Thüringen</li>
+</ul>  
+<br>
+<p> In Bayern kann man an der dritten Ziffer der Betriebsnummer erkennen, aus welchem Regierungsbezirk das Ei stammt!<br>Das Ei im Bild stammt beispielsweise aus Bodenhaltung (2), wurde in Deutschland (DE) gelegt, genauer gesagt in Bayern (09) und zwar in dem Betrieb mit der Registriernummer 1234 und dort im Stall Nr. 1.</p>       
+</div>   <br><br>
+</ion-content>
+  </ion-slide>
+  <ion-slide>
+  <ion-content class="has-header">
+<br>
+    <div class="list card">
+<h3>2. Adressenvergleich!</h3><br><br>
+            		<p>Bei allen anderen Produkten wird die Sache schon schwerer. Oft reicht jedoch schon ein Blick auf die Produktverpackung um sofort den Hersteller zu erkennen meistens hilft jedoch nur ein Adressvergleich der Herstelleranschrift. Ein einfacher Blick in Google und Googlemaps kann schon sehr aufschlussreich sein. </p> <img class="kontrollnummer" src="./img/bildadresse.jpg">
+<br><p>Wenn wir uns die Chateau Schokolade bei Aldi Nord nämlich mal genauer ansehen, finden wir die WIHA GmbH als Hersteller der Vollmilchschokolade. Eine kurze Suche bei Google ergibt, dass die WIHA GmbH zur Storck Gruppe (Merci, Nimm 2, Toffifee, Werther's Original, uvm.) gehört. <br>Die Firma stellt natürlich unter den höchsten Anforderungen von Storck und ihrer Kunden her.<br>Somit eigentlich eine absolute Markenschokolade.<hr> <b>Wikipedia Ausschnitt hierzu: Ebenfalls zur Storck Gruppe gehört das Unternehmen WIHA GmbH mit den exklusiv für Aldi hergestellten Marken Choceur, Château, van Bolten Nussbeisser und Riquet Nussknacker.</b><br>(Quelle: Wikipedia)</p><br><br>
+
+	</div>
+    </ion-content>
+  </ion-slide>
+  <ion-slide>
+  <ion-content class="has-header">
+<br>
+        <div class="list card">
+<h3>3. Handelsregister!</h3>
+             		<p>Ein Blick in das Handelsregister ist oft auch ein sehr guter Anhaltspunkt um Produkte und Hersteller zu enttarnen und eine Verbindung zu finden. Auf den Verpackungen muss mindestens ein Postfach angegeben werden. Hiermit ist oft schnell ein Hersteller ermittelt. Dafür kann auch der Bundesanzeiger oder das Markenregister hilfreich sein. Wenn es nicht sogar eine offizielle Herstellerhandelsmarke ist, stellen die Hersteller oft eine Tochterfirma, Zweit- oder Drittmarke als Tarnung davor.</p>
+                    <br>
+    <button class="item item-icon-left  button-block button-balanced " ng-click=openlinkexternal("https://www.handelsregister.de/")>
+        <i class="icon ion-ios7-albums-outline"></i>
+Handelsregister  </button><button class="item item-icon-left  button-block button-balanced" ng-click=openlinkexternal("https://www.bundesanzeiger.de/")>
+        <i class="icon ion-eye"></i>
+Bundesanzeiger  </button><button class="item item-icon-left button-block button-balanced" ng-click=openlinkexternal("https://register.dpma.de/DPMAregister/marke/uebersicht")>
+    <i class="icon ion-ios7-albums-outline"></i>
+Markenregister  </button>
+ 		 </div> <br><br>
+         </ion-content>
+  </ion-slide>
+
+</ion-slide-box>
+    			            		
+                    
+                      
+            	    
+     </ion-tab>
+
+<ion-tab title="Was?" icon-on="ion-ios7-checkmark" icon-off="ion-ios7-checkmark-outline">
+         <!-- Tab 1 content -->  		 <ion-content class="has-header">
+
+                 <div class="list card">
+<h4>Markendetektive deckt für dich nicht nur die Markenprodukte hinter den NoNames auf!</h4>
+<h4 style="color:#BBED6C">+ Umfangreicher Preisvergleich von <i style="color:#FF0060">über 100 Millionen Produkten in über 1.000 Onlineshops</i> inkl. amazon und ebay !</h4>
+<br>
+<p>Die App MarkenDetektive kennt die Markenware hinter günstigen No-Name-Produkten und Handelsmarken vom Discounter. Wer statt der teuren Marke das meist gleichwertige Discounter-Produkt kauft, kann beim Einkauf spürbar sparen.
+<br>
+<br>
+Sortiert nach Discounter, Handelsmarken, Markenprodukt oder Kategorie stöbert ihr in der App durch die Produkt-Datenbank. Wenn ihr schon im Laden seit, hilft der Barcode-Scanner, der zum eingescannten Billig-Produkt die Marke findet.
+<br>
+<br>
+<b>Tipp:</b> Wer schon vor dem Einkauf auf Spar-Recherche geht, kann Produkte in der integrierten Einkaufsliste ablegen - und später bares Geld sparen.</p>
+<p>Schau doch einfach unser Video:</p></p>
+<div class="video-container">
+         <iframe src="http://www.youtube.com/embed/dIw9L5aakHk" frameborder="0" width="560" height="315"></iframe>
+</div><hr><p>Deine Detektive</p>
+
+</div>      </ion-content>
+
+   </ion-tab>
+  <ion-tab title="FAQ" icon-on="ion-ios7-help" icon-off="ion-ios7-help-outline">
+         <!-- Tab 3 content -->
+  		 <ion-content class="has-header">               
+           <div class="list card">
+
+				<h4>Woher kommen die Daten?</h4>
+       			<p>Da die Herstelller selbst natürlich nicht wollen, dass ihre billigen Produkte sofort als Markenprodukte erkannt werden, ändern sie häufig die Herkunftsangaben oder Tarnen ihre Produkte mit Zweit-, Dritt- oder Tochterfirmen. Das macht die Recherche nicht immer einfach aber sehr spannend. Die Reise führte uns durch mehrere Discounter in Deutschland und bedeutete mehrere Tage, Wochen und Monate an Recherchearbeit. Wir haben so sorgfältig wie möglich gearbeitet und recherchiert. Dennoch sind auch einige Produkte aus Onlinedatenbanken entnommen! Trotz sorgfältiger Prüfung und Recherche besteht hiermit kein Recht auf Vollständigkeit oder Richtigkeit der Daten.</p>
+              	<br>
+       			<h4>Sind das wirklich exakt die selben Produkte?</h4>
+				<p> In vielen Fällen ist es wirklich das exakt selbe Produkt in anderer Verpackung. Billig ist eben meistens nicht gleich schlechter! Auch wenn hier für jedes Discounterprodukt ein passendes Markenprodukt angegeben wird, bedeutet das jedoch nicht immer, dass es  die selben Inhaltsstofe oder die selbe Zusammensetzung besitzt. Es besteht oft auch nur eine Verbindung zum Hersteller oder es ist sogar der selbe Hersteller. Das bedeutet wiederum, dass auch die Discounterprodukte mit den MINDESTENS selben Qualitätsanforderungen hergestellt werden wie Markenprodukte.</p>	
+                <br>
+       			<h4>Kann ich auch Produkte erfassen?</h4>
+				<p> Ja, natürlich. Dazu wähle einfach "Produkte vorschlagen" aus dem Menü und folge den Anweisungen. Die Community entscheidet dann durch "bestätigen", ob die gemachten Angaben richtig sind. Solange dein Produkt nocht nicht zu 100% von der Community bestätigt wurde, wird es in der "Nicht bestätigte Produkte" Liste geführt. Hier können alle Nutzer dein Produkt untersuchen und bestätigen bzw. ablehnen. Erst wenn dein Produkt eine 100%ige Bestätigungsrate erhalten hat, wird es automatisch als korrektes Produkt in die Datenbank übernommen. Wenn dein Produkt jedoch 100% Absagen erhalten hat, wird es automatisch gelöscht! </p>
+                <br>
+       			<h4>Wie kann ich Produkte bestätigen/ablehnen?</h4>
+				<p>Dazu benötigst du nicht mal einen Nutzeraccount in der Community. Du kannst dich in der Liste der nicht bestätigten Produkte umsehen und diese prüfen. Hier kannst du die Produkte dann bestätigen bzw. ablehnen.</p><br><br></div>
+    </ion-tab>
+</ion-content>
+</ion-tabs> 
+</ion-view>

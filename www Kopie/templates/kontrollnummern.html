@@ -1,0 +1,37 @@
+<ion-view title="Kontrolnummern">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div ng-controller="getKontrollnummernCtrl">
+   
+   <div class="list">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+<i class="icon ion-search placeholder-icon"></i>
+    <input data-ng-model="filter" name="filter" type="search"  placeholder="Filter..."  required ng-minlength=1 ng-maxlength=50>    </label>
+  
+  </div>
+
+</div>
+   
+ <ion-list class="list">      			      
+		    <ion-item class="listingtext item my-item"   collection-repeat="Kontrollnummer in Kontrollnummern | filter:filter" collection-item-width="'100%'"
+    collection-item-height="150">
+              <span>
+               	<h3 style="margin-right:1pt; white-space: pre-line;">{{Kontrollnummer.Nummer}} </h3>
+                	<p style="margin-right:1pt; white-space: pre-line;">{{Kontrollnummer.Firma}} </p>
+                  <p style="margin-right:1pt; white-space: pre-line;">{{Kontrollnummer.Marken}} </p>                              
+
+               </span>
+
+      		</ion-item>
+      </ion-list>
+      
+   </div> 
+  </ion-content>
+</ion-view>

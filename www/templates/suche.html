@@ -1,0 +1,59 @@
+<ion-view title="Suche " animation="reverse">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+   <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline"></button>  
+   </ion-nav-buttons>
+  <ion-content class="has-header" has-footer="true"  >
+  <br>
+ 
+    <!--<form ng-submit="searchprodukte(suche)" >
+      <div class="list" >
+        <label class="item item-input" >
+           <input  type="text" placeholder="Nach Produkt, Hersteller, Schlagworten..." ng-model="suche.nach">
+        </label>
+       
+        <label class="item">
+          <button class="button button-block button-stable icon-left ion-ios7-search" type="submit"><b>Suche starten...</b></button>
+        </label>
+      </div>
+    </form>-->
+    <form name="formean" novalidate ng-submit="searchprodukte(suche)">
+
+   <div class="item-input-inset">
+
+    <label class="item-input-wrapper">
+    <i class="icon ion-ios7-search placeholder-icon"></i>
+      
+    <input data-ng-model="suche.nach" name="eanEAN" type="search" autocomplete  placeholder="Nach Produkt, Hersteller, Schlagworten..."  required ng-minlength=1 ng-maxlength=50/>
+  </label>
+  
+         
+</div>
+
+         
+
+<button type="submit"  ng-disabled="formean.$invalid || isUnchanged(suche)"   style="font-size:20px; text-align:center;" class="button button-full  button-balanced  icon-left ion-ios7-search">Suche starten... </button><div ng-show="formean.$invalid" class="padding-left">
+                 <p style="color:red;">Gebe einen gültigen Suchbegriff ein oder scanne den EAN Code direkt am Produkt</p>
+</div>
+</form>
+    
+        <div ng-controller="getlastsearchCtrl">
+    		<div class="item item-divider">
+				Deine letzten Suchen...
+          </div>			
+         <ion-list>      			      
+		    <ion-item ng-repeat="search in searches | slice:0:20 | filter:suche.nach" ng-click="searchprodukteclick('{{search[0].Bezeichnung}}')">
+                   <span class="item-icon-right">
+               	<h3 style="margin-right:15pt; white-space: pre-line;">{{search[0].Bezeichnung}}</h3> <i style="white-space: pre-line; font-size:10px;">{{search[0].Datum}}</i>
+</h3>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>   
+      		</ion-item>
+      </ion-list>
+    </div> 
+    
+  </ion-content>
+</div>
+</ion-view>

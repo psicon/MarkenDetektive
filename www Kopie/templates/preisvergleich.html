@@ -1,0 +1,138 @@
+<ion-view title="Produkt">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+      <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button> 
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  
+  <ion-tabs class="tabs-balanced tabs-icon-top slide-left-right">
+  		 <ion-content class="has-header">
+
+  
+
+   <ion-tab title="{{(produkte.Products|filter:{AffilinetCategoryId:'!49'}|filter:{ShopCategoryPath:'!Vertrag'}|filter:{ShopCategoryPath:'!Bundles'}).length}} Online Preise" icon-on="ion-social-usd" icon-off="ion-social-usd-outline" >
+         <!-- Tab 3 content -->
+  		 <ion-content class="has-header" >               
+        <!--
+  <div style="text-align:center;" ng-bind-html="myhtml">
+        	<i class="icon-left icon ion-loading-d" style="font-size:24px;" ></i><h3 >Suche in externer Datenbank läuft...</h3> 
+        </div>         -->
+       <div  style="text-align:center;" ng-bind-html="myhtml">
+ 					{{myhtml}}
+         </div>  
+         
+         
+         <div ng-show="eanvergleich" >      			      
+ 
+ 
+  <div class="listimagedivonlinepv">
+                 <img ng-show="produkte.Products[0].Images[0][0].URL != null" ng-click="openlinkext('{{produkte.Products[0].Deeplink1}}','{{produkte.Products[0].ProductId}}','{{produkte.Products[0].EAN}}')" class="produktlistimg" src="{{produkte.Products[0].Images[0][0].URL}}">
+                 
+                  <img ng-show="produkte.Products[0].Images[0][0].URL == null" ng-click="openlinkext('{{produkte.Products[0].Deeplink1}}','{{produkte.Products[0].ProductId}}','{{produkte.Products[0].EAN}}')" class="produktlistimg" src="http://www.psicon.de/discountermarken/ionic/img/noimage-b1.jpg">
+        </div> 
+        <div class="padding-left">
+ 
+        <p style="margin-right:15pt; white-space: pre-line; font-size:14px;"><b>{{produkte.Products[0].ProductName}}</b></p>
+        <i ng-show="produkte.Products[0].AffilinetCategoryPath" style="font-size:10px; overflow: hidden; text-overflow: ellipsis;">Kategorie: {{produkte.Products[0].AffilinetCategoryPath}}<hr></i>
+        <i style=" font-size:10px; overflow: hidden; text-overflow: ellipsis;">{{produkte.Products[0].DescriptionShort}}</i>
+ <p><hr>{{(produkte.Products|filter:{AffilinetCategoryId:'!49'}|filter:{ShopCategoryPath:'!Vertrag'}|filter:{ShopCategoryPath:'!Bundles'}).length}} Preise gefunden ab<b style="color:#b6db49; font-size:14px;"> {{(produkte.Products|orderBy:'PriceInformation.DisplayPrice':false|filter:{AffilinetCategoryId:'!49'}|filter:{ShopCategoryPath:'!Vertrag'}|filter:{ShopCategoryPath:'!Bundles'})[0].PriceInformation.DisplayPrice}}</b>:</p>
+                                 </div>
+                                 <ion-list class="list">      			      
+
+<ion-item ng-click="openamazon(produkte.Products[0].ProductName)" style="max-height:50pt;">
+                
+<div class="listimagedivonlinesmall">
+<img src="http://www.psicon.de/discountermarken/ionic/img/amazonlogo.jpg" style="width:100%; height:auto;">
+               </div>
+              <span class="item-icon-right">
+               	<h2 style="margin-right:15pt; font-size:17px; color:#b6db49; white-space: pre-line;">amazon Preissuche<p style="margin-right:15pt; font-size:10px; ">{{produkte.Products[0].ProductName}}</p>
+</h2>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+
+
+
+</ion-item>
+<ion-item ng-click="openebay(produkte.Products[0].ProductName)" style="max-height:50pt;">
+                
+<div class="listimagedivonlinesmall">
+<img src="http://www.psicon.de/discountermarken/ionic/img/ebaylogo.jpg" style="width:100%; height:auto;">
+               </div>
+              <span class="item-icon-right">
+               	<h2 style="margin-right:15pt; font-size:17px; color:#b6db49; white-space: pre-line;">ebay Preissuche<p style="margin-right:15pt; font-size:10px; ">{{produkte.Products[0].ProductName}}</p>
+</h2>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+
+
+
+</ion-item>
+<ion-item ng-click="openoffer('{{produkt.Deeplink1}}','{{produkt.ProductId}}','{{produkt.EAN}}')" ng-repeat="produkt in produkte.Products | orderBy:'PriceInformation.DisplayPrice':false | filter:{AffilinetCategoryId:'!49'} | filter:{ShopCategoryPath:'!Vertrag'} | filter:{ShopCategoryPath:'!Bundles'}" style="max-height:50pt;">
+                      
+
+<div class="listimagedivonlinesmall">
+<img src="{{produkt.Logos[0].URL}}" style="width:100%; height:auto;">
+               </div>
+              <span class="item-icon-right">
+               	<h2 style="margin-right:15pt; font-size:17px; color:#b6db49; white-space: pre-line;">{{produkt.PriceInformation.DisplayPrice}}<p style="margin-right:15pt; font-size:10px; ">{{produkt.ProductName}}</p>
+</h2>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+
+
+
+<ion-option-button class="button-energized icon ion-ios7-plus-outline" 
+                             ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.ProductName}}','{{produkt.PriceInformation.DisplayPrice}}')">
+            Liste
+          </ion-option-button>
+          <ion-option-button class="button-positive icon ion-social-facebook-outline" 
+                             ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{produkt.Images[0][0].URL.large}}')">acebook</ion-option-button>
+</ion-item>
+
+</ion-list>
+
+<br><hr><br><hr>
+    
+       
+     </div>
+              </ion-content>
+
+           </ion-tab>
+  
+  
+  
+   <ion-tab title="{{Produkte.length}} Detektivprodukte" badge="" icon-on="ion-ios7-cart" icon-off="ion-ios7-cart-outline" ng-controller="getProduktebysearchCtrl">
+         <!-- Tab 3 content -->
+  		 <ion-content class="has-header">  
+ 
+ 
+         <ion-list class="list">      			      
+		    <ion-item   ng-repeat="Produkt in Produkte"  ng-click="getprodukt({{Produkt.mpEAN}})">
+	           <div class="listimagediv">
+               <img class="produktlistimg" src="http://www.psicon.de/discountermarken/img/discounterprodukte/{{Produkt.dpBild}}">
+               </div>
+              <span class="item-icon-right">
+               	<h3 style="margin-right:15pt; white-space: pre-line;">{{Produkt.dpBeschreibung}}<p style="margin-right:15pt; white-space: pre-line;">({{Produkt.mpBezeichnung}})</p>
+</h3>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+      		</ion-item>
+      </ion-list>
+      
+   
+ 
+   </ion-content>
+   </ion-tab>
+   <!-- EBAAAAY
+   <ion-tab title="ebay Angebote" icon-on="ion-ios7-help" icon-off="ion-ios7-help-outline">
+   		 <ion-content class="has-header">               
+           <div class="list card" ng-controller="getebayProdukte">
+
+			</div>
+    </ion-tab>
+   -->
+  </ion-tabs>
+</ion-view>

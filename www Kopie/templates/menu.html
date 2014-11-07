@@ -1,0 +1,104 @@
+<ion-side-menus >
+
+  <ion-pane ion-side-menu-content>
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Zurück </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="left" expose-aside-when="large">
+    <header class="bar bar-header bar-stable">
+      <h1 class="title">Menü</h1>
+    </header>
+    <ion-content class="has-header">
+      <ion-list>
+      <div class="item item-divider">
+    		Preisvergleich/Geheimnissuche:
+  		</div>
+       <a class="item item-icon-left" menu-close nav-clear ng-click="scanbarcode()">
+        <i class="icon ion-ios7-barcode-outline"></i>
+			Barcode scannen
+  		</a>
+      	<a class="item item-icon-left" menu-close nav-clear ng-click="showsearch()">
+        <i class="icon ion-ios7-search-strong"></i>
+Textsuche
+  		</a>
+      	
+  		
+        
+        <div class="item item-divider">
+    		Geheimnisse finden über:
+  		</div>
+  		<a class="item item-icon-left" menu-close ng-click="getDiscounterList()">
+        <i class="icon ion-ios7-world-outline"></i>
+			Discounter
+  		</a>
+      
+       <a class="item item-icon-left" menu-close  ng-click="getMarkenProdukteList()">
+        <i class="icon ion-trophy"></i>
+			Markenprodukte
+  		</a>
+       <a class="item item-icon-left" menu-close   href="#/app/kategorieauswahl">
+        <i class="icon ion-clipboard"></i>
+			Produktkategorie
+  		</a>
+        <a class="item item-icon-left" menu-close   href="#/app/neuesteprodukte">
+        <i class="icon ion-ios7-lightbulb-outline"></i>
+			Neueste Produkte
+  		</a>
+        <a class="item item-icon-left" menu-close  ng-click="getNotvalidatedProdukteList()">
+        <i class="icon ion-eye-disabled"></i>
+			Nicht bestätigte
+           
+  		</a>
+       <div class="item item-divider">
+			Communityfunktionen:		
+  		</div>
+  		<a class="item item-icon-left" menu-close  href="#/app/shoppingcart">
+        <i class="icon ion-ios7-cart"></i>
+			Einkaufsliste
+  		</a> 
+       <a class="item item-icon-left" menu-close  href="#/app/wizard0">
+        <i class="icon ion-compose"></i>
+			Produkte vorschlagen
+  		</a>
+         <a class="item item-icon-left" menu-close  ng-click="showshare()">
+        <i class="icon ion-share"></i>
+			teilen + bewerten
+  		</a>
+       <a class="item item-icon-left" menu-close  ng-click="openlinkexternal('fb://profile/672772359430969')">
+        <i class="icon ion-social-facebook"></i>
+			find us on facebook
+  		</a>
+        
+        <div class="item item-divider">
+			Weitere Info's:		
+  		</div>
+         <a class="item item-icon-left" menu-close href="#/app/home">
+        <i class="icon ion-ios7-home"></i>
+			Startseite
+  		</a>
+  		<a class="item item-icon-left" menu-close href="#/app/kontrollnummernauswahl">
+        <i class="icon ion-ios7-bookmarks-outline"></i>
+			Kontrollnummerdatenbank
+       </a> 
+        <a class="item item-icon-left" menu-close  href="#/app/handelsmarken">
+        <i class="icon ion-cash"></i>
+			Handelsmarkenliste
+  		</a> 
+        <a class="item item-icon-left" menu-close href="#/app/infos">
+        <i class="icon ion-ios7-help"></i>
+			Info's + Tipps&Tricks
+  		</a>
+       <a class="item item-icon-left" menu-close href="#/app/impressum">
+        <i class="icon ion-ios7-information"></i>
+			Impressum
+  		</a>
+  
+  
+        
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

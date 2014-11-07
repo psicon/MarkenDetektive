@@ -1,0 +1,187 @@
+<ion-view title="Produkte erfassen">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons
+  ><ion-content class="has-header">
+    <div class="item item-text-wrap"> 
+     <div ng-switch="step" >
+      <div ng-switch-when="1"  >
+        <p>Wir finden es wirklich super, dass du dein Wissen mit uns und der Community teilen möchtest.<br>Wir haben die folgenden Schritte deshalb auch so einfach wie möglich gestaltet.<br><br><b>Bitte beachte jedoch folgende Dinge: </b>       
+Dein Produkt wird nach der Erfassung in der "Nicht bestätigte Produkte" Liste aufgeführt. Hier kann jeder registrierte Nutzer abstimmen ob die von dir angegebenen Produktdaten korrekt sind. Erst wenn "dein" Produkt hier eine Bestätigungsrate von 100% erreicht, wird es automatisch in die offizielle Markendetektive Datenbank übernommen.</p>
+
+
+<button ng-click="setStep(2)" style="font-size:20px; text-align:center;" class="button button-full  button-balanced icon-right ion-ios7-fastforward-outline">Ok, los geht's... </button>
+          </div>
+
+
+
+
+
+
+       <div ng-switch-when="2" >
+         <form name="formean" novalidate>
+
+       <h3>Markenprodukt</h3><hr>
+       <p>Als erstes benötigen wir die EAN/GTIN Nummer des <b>Markenproduktes</b>:</p><br>
+
+<div class="    item-input-inset">
+
+  <label class="item-input-wrapper">
+    <i class="icon ion-pound placeholder-icon"></i>
+    <input data-ng-model="ean.scannedcodefield" name="eanEAN" type="number" placeholder="eintippen oder scannen ..."  required ng-minlength=5 ng-maxlength=16/>
+  </label>
+   <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button>
+         
+</div>  
+<div ng-show="formean.$invalid">
+                 <p style="color:red;">Gebe eine gültige EAN ein oder scanne sie direkt am Produkt</p>
+</div>         <br>
+
+
+<button type="submit"  ng-disabled="formean.$invalid || isUnchanged(ean)"  ng-click="setEAN(ean)" style="font-size:20px; text-align:center;" class="button button-full  button-balanced icon-right ion-ios7-fastforward-outline">Weiter </button>
+</form>
+       </div>
+
+<div ng-switch-when="3" class="animate-switch2"> <br>
+            <p>Welche Packungseinheit hat das Produkt?</p>  
+  			<ion-list class="list">   			      
+		    <ion-item class="listingtext"  ng-repeat="item in items"  ng-click="setPackungsid({{item.id}})">
+              <span >
+                	{{item.name}}
+               </span>
+      		</ion-item>
+      </ion-list>
+        </div> 
+       
+<div ng-switch-when="4" >
+  <form name="form" novalidate>
+       <h3>Markenprodukt</h3><hr>
+<div class="list">
+
+  <label class="item item-input">
+    <span class="input-label">Name:</span>
+    <input type="text" placeholder="zB. Leibniz Butterkeks" ng-model="product.name" name="pName" required>
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Preis:</span>
+    <input type="number" pattern="[0-9]+([\,|\.][0-9]+)?"  step="0.01" placeholder="zB. 2,99" ng-model="product.price" name="pPrice" required>
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Wissen:</span>
+    <textarea ng-model="product.knowledge" placeholder="Hast du (Unnützes)Wissen zu dem Produkt?"></textarea>
+  </label>
+  	<label class="item item-input">
+    <span class="input-label">Packungsinhalt:</span>
+    <input type="number" placeholder="zB. 250" ng-model="product.package" name="pPackage" required>
+  </label>
+  <div class="list">
+
+   
+  </div>
+</div>
+<button type="submit"  ng-disabled="form.$invalid || isUnchanged(product)" ng-click="getKategorienliste(product)" style="font-size:20px; text-align:center;" class="button button-full  button-balanced icon-right ion-ios7-fastforward-outline">Weiter </button>
+     </form>
+      </div>
+
+      <div ng-switch-when="5" class="animate-switch2"> <br>
+            <p>Welcher Kategorie gehört das Produkt an?</p>  
+  			<ion-list class="list">   			      
+		    <ion-item class="listingtext"  ng-repeat="Kategorie in Kategorien"  ng-click="setKategoriewizard({{Kategorie.ID}})">
+              <span >
+                 	<img class="listimage" src="http://www.psicon.de/discountermarken/img/typen/{{Kategorie.Bild}}">
+               	{{Kategorie.Bezeichnung}}
+               </span>
+      		</ion-item>
+      </ion-list>
+        </div>
+       
+             <div ng-switch-when="6" class="animate-switch2"><br>
+            <p>Wer stellt das Produkt her?</p>  
+  			<ion-list class="list">			      
+		    <ion-item class="listingtext"  ng-repeat="Hersteller in Herstellers"  ng-click="setHerstellerwizard({{Hersteller.ID}})">
+              <span >
+                 	<img class="listimage" src="http://www.psicon.de/discountermarken/img/MarkenHerstellerLogos/{{Hersteller.Bild}}">
+               	{{Hersteller.Name}}
+               </span>
+      		</ion-item>
+      </ion-list>
+        </div>
+       
+        <div ng-switch-when="7" >
+         <form name="formeandiscount" novalidate>
+
+       <h3>Discounterprodukt</h3><hr>
+       <p>Als erstes benötigen wir die EAN/GTIN Nummer des zugehörigenden <b>DISCOUNTERPRODUKTS</b>:</p><br>
+
+<div class="    item-input-inset">
+
+  <label class="item-input-wrapper">
+    <i class="icon ion-pound placeholder-icon"></i>
+    <input data-ng-model="eandiscount.scannedcodefield" name="eanEAN" type="number" placeholder="eintippen oder scannen ..."  required ng-minlength=5 ng-maxlength=16/>
+  </label>
+   <button ng-click="scanbarcodediscount()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button>
+         
+</div>  
+<div ng-show="formean.$invalid">
+                 <p style="color:red;">Gebe eine gültige EAN ein oder scanne sie direkt am Produkt</p>
+</div>         <br>
+
+
+<button type="submit"  ng-disabled="formeandiscount.$invalid || isUnchanged(eandiscount)"  ng-click="setEANdiscount(eandiscount)" style="font-size:20px; text-align:center;" class="button button-full  button-balanced icon-right ion-ios7-fastforward-outline">Weiter </button>
+</form>
+       </div>
+       
+       
+<div ng-switch-when="8" >
+  <form name="form" novalidate>
+       <h3>Discounterprodukt</h3><hr>
+<div class="list">
+
+  <label class="item item-input">
+    <span class="input-label">Name:</span>
+    <input type="text" placeholder="zB. Biscotto Butterkeks" ng-model="product.name" name="pName" required>
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Preis:</span>
+    <input type="number" pattern="[0-9]+([\,|\.][0-9]+)?"  step="0.01" placeholder="zB. 2,99" ng-model="product.price" name="pPrice" required>
+  </label>
+ 
+ 
+  	<label class="item item-input">
+    <span class="input-label">Inhalt:</span>
+    <input type="number" placeholder="zB. 250" ng-model="product.package" name="pPackage" required>
+  </label>
+  <div class="list">
+
+  
+  </div>
+</div>
+<button type="submit"  ng-disabled="form.$invalid || isUnchanged(product)" ng-click="getDiscounterliste(product)" style="font-size:20px; text-align:center;" class="button button-full  button-balanced icon-right ion-ios7-fastforward-outline">Weiter </button>
+     </form>
+      </div>
+       
+       <div ng-switch-when="9" class="animate-switch2">
+       <br>
+       <p>Wo gibt's das Produkt?</p>
+  			<ion-list class="list">      			      
+		    <ion-item class="listingtext"  ng-repeat="Discounter in Discounters"  ng-click="setDiscounterwizard({{Discounter.ID}})">
+              <span class="item-icon-right">
+                 	<img class="listimage" src="http://www.psicon.de/discountermarken/img/discounter/{{Discounter.Bild}}">
+               	{{Discounter.Name}}
+               </span>
+      		</ion-item>
+      </ion-list>
+        </div>
+       
+ </div>
+ 
+     
+          
+     
+  </ion-content>
+</ion-view>

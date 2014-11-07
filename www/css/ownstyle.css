@@ -1,0 +1,223 @@
+
+/*@import url("http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700"); */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url('../css/fonts/Roboto/2tsd397wLxj96qwHyNIkxHYhjbSpvc47ee6xR_80Hnw.woff2') format('woff2'), url('../css/fonts/Roboto/vzIUHo9z-oJ4WgkpPOtg13YhjbSpvc47ee6xR_80Hnw.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url('../css/fonts/Roboto/Hgo13k-tfSpn0qi1SFdUfZBw1xU1rKptJj_0jans920.woff2') format('woff2'), url('../css/fonts/Roboto/Hgo13k-tfSpn0qi1SFdUfbO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url('../css/fonts/Roboto/oMMgfZMQthOryQo9n22dcuvvDin1pK8aKteLpeZ5c0A.woff2') format('woff2'), url('../css/fonts/Roboto/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff') format('woff'),
+       url('../css/fonts/Roboto/Roboto-Regular-webfont.ttf') format('truetype');
+
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto/RxZJdnzeo3R5zSexge8UUZBw1xU1rKptJj_0jans920.woff2) format('woff2'), url('../fonts/Roboto/RxZJdnzeo3R5zSexge8UUbO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('../fonts/Roboto/d-6IYplOFocCacKzxwXSOJBw1xU1rKptJj_0jans920.woff2) format('woff2'), url('../fonts/Roboto/d-6IYplOFocCacKzxwXSOLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+.myScroll{
+width: 100%;
+height: 50% ;
+}
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 40pt;
+   color: #000;
+  background-color: #eee;
+  text-align: center;
+    margin-bottom:32pt;
+	  height: 100%;
+
+
+ 
+  }
+  
+.slide-box{
+top: 10pt;
+  height: 80%;
+  text-align: center;
+  margin-bottom:50pt;
+}
+.slider-pager {
+		position:absolute;
+		top: 49pt;
+		height:15pt;
+		background-color: #b6db49;
+		opacity: 0.6;
+
+}
+
+.bar-header {
+  top: 0;
+  border-top-width: 0;
+  box-shadow: 0px 2px 0px #b6db49,-0px 2px 20px #444}
+
+
+.app{	
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+
+
+.listimage 
+{ 
+	max-width:40pt;
+	max-height:40pt;
+	vertical-align:middle;
+	padding-right:10pt;
+	 	}
+
+.listingtext{
+	min-height: 45pt;
+	}
+	
+	 
+	.produktlistimg{
+		max-width:100%;
+		margin-top:1pt;
+ 		}
+		
+		.produktlistimgonline{
+		max-width:100%;
+		margin:1pt;
+		vertical-align:middle
+		}
+		
+		.produktdetail{
+		max-width:150pt;
+		max-height:120pt;
+		overflow: hidden;
+	   text-align: center;
+		display:block;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		border-radius: 20px;
+
+
+		}
+		
+		.kontrollnummer{
+		max-width:90%;
+		max-height:220pt;
+	
+		}
+		.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+ 	
+ .listimagediv{
+	 float: left; 
+	 margin: 1pt;
+	 	 margin-right: 20pt;
+		 	 margin-top: -4pt;
+	height:50pt;
+	max-width:50pt;
+ 		 }
+		 
+		 .listimagedivonline{
+	 float: left; 
+	 margin-top: 1pt;
+	 	 margin-right: 10pt;
+ 	height:auto;
+	width:75pt;
+ 		 }
+		 
+		 	 .listimagedivonlinepv{
+	 float: none;
+	 text-align:center;
+	 margin: 2pt;
+ 	height:auto;
+	width:auto;
+ 		 }
+		  .listimagedivonlinesmall{
+	 float: left; 
+	 margin: 1pt;
+	 	 margin-right: 7pt;
+		 	 margin-top: 3pt;
+	height:auto;
+	width:70pt;
+ 		 }
+	
+	.my-item {
+  left: 0;
+  right: 0;
+}
+	.animate-switch-container {
+  position:relative;
+   height:300pt;
+  overflow:hidden;
+}
+
+.animate-switch {
+  padding:10px;
+}
+.animate-switch2 {
+  padding:0px;
+}
+.animate-switch.ng-animate {
+  -webkit-transition:all cubic-bezier(0.250, 0.860, 0.450, 0.940) 0.8s;
+  transition:all cubic-bezier(0.350, 0.860, 0.450, 1.40) 1.1s;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+.animate-switch.ng-leave.ng-leave-active,
+.animate-switch.ng-enter {
+  top:-550px;
+}
+.animate-switch.ng-leave,
+.animate-switch.ng-enter.ng-enter-active {
+  top:0;
+}
+	
+	 .button-bar {
+    max-height: 4px;
+    line-height: 22px; 
+	
+  }
+ .button-bar {
+  padding: 2px 4px 1px;
+  min-width: 28px;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 26px; }
+  .button-bar .icon:before, .button-small.icon:before, .button-small.icon-left:before, .button-small.icon-right:before {
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 3px; }
+ 

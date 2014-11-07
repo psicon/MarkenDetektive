@@ -1,0 +1,61 @@
+<ion-view title="Produkt">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+       <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    </br>
+    <div class="card" class="col" ng-show="openeanprodukte.lenght">
+    	<h4>Kein passendes Produkt in MarkenDetektive Datenbank gefunden.</h4><hr><br>
+        <p class="icon-left icon ion-ios7-help-outline"> Möchtest du das Produkt jetzt für uns erfassen?</p>       	
+        <hr>
+        <i class="icon-left icon ion-loading-d" ng-hide="openeanprodukte.length"></i><p ng-hide="openeanprodukte.length">Suche in externer Datenbank...</p> 
+        <div ng-controller="openeanCtrl" ng-bind-html="openeanprodukte">
+ 		        {{openeanprodukte}}	
+ 
+        </div>
+        
+	</div>
+    <div class="row responsive-sm" ng-show="Produkte.length">
+     <div class="col"  >
+     <h3>Discounterprodukte</h3>
+ 
+          <div class="card" class="col"  ng-repeat="Produkt in Produkte" >
+           <div class="listimagediv">
+               </div>
+            <div class="item item-text-wrap">
+                           <img class="produktdetail" src="http://www.psicon.de/discountermarken/img/discounterprodukte/{{Produkt.dpBild}}">
+
+        		<h3><b>{{Produkt.dpBeschreibung}}</b> <p>bei {{Produkt.disDiscounter}} </p><img class="listimage" style="float:right;" src="http://www.psicon.de/discountermarken/img/discounter/{{Produkt.Bild}}"></h3>
+        		<p><b>Preis: </b>{{Produkt.dpPreis}} €</p>
+        		<p><b>Packung: </b>{{Produkt.dpPackungsgroesse}} {{Produkt.peBezeichnung}}</p>
+        		<p>Ersparnis: <b style="color:#61D33A">{{Produkt.Ersparnis}} %</b></p>
+                <hr><a class="button button-outline icon-left ion-ios7-plus-outline button-balanced">Einkaufsliste</a>  <a class="button button-icon  button-outline button-positive icon ion-social-facebook-outline">acebook</a>
+            </div>
+        	</div>
+            
+           
+ 
+      <div class="col" >
+      <h3>Markenprodukt</h3>
+
+          <div class="card" class="col" >
+ 
+            <div class="item item-text-wrap">
+<img class="produktdetail" src="http://www.psicon.de/discountermarken/img/markenprodukte/{{Produkte[0].mpBild}}">
+
+        		<h3><b>{{Produkte[0].mpBezeichnung}} </b></h3>
+        		<p><b>Preis: </b>{{Produkte[0].mpPreis}} €</p>
+        		<p><b>Packung: </b>{{Produkte[0].mpPackungsgroesse}} {{Produkte[0].peBezeichnung}}</p>
+        		<p><b>(Unnützes-)Wissen: </b>{{Produkte[0].mpBeschreibung}} </p>           <hr><a class="button button-outline icon-left ion-ios7-plus-outline button-balanced">Einkaufsliste</a>  <a class="button button-icon  button-outline button-positive icon ion-social-facebook-outline">acebook</a> </div>
+        	</div>
+           
+</div>
+   </div>
+</div>
+  </ion-content>
+</ion-view>

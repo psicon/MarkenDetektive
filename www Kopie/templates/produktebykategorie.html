@@ -1,0 +1,39 @@
+<ion-view title="{{Produkte.length}} Produkte" animation="reverse">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+   <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline"></button>  
+
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="list">
+
+  <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+<i class="icon ion-search placeholder-icon"></i>
+    <input data-ng-model="filter" name="filter" type="search"  placeholder="Filter..."  required ng-minlength=1 ng-maxlength=50>    </label>
+  
+  </div>
+
+</div>
+         <ion-list class="list">    
+		    <ion-item  ng-repeat="Produkt in Produkte | filter:filter"
+       ng-click="getprodukt({{Produkt.mpEAN}})">
+	           <div class="listimagediv">
+               <img class="produktlistimg" src="http://www.psicon.de/discountermarken/img/discounterprodukte/{{Produkt.dpBild}}">
+               </div>
+              <span class="item-icon-right">
+               	<h3 style="margin-right:15pt; white-space: pre-line;">{{Produkt.dpBeschreibung}}<p style="margin-right:15pt; white-space: pre-line;">({{Produkt.mpBezeichnung}})</p>
+</h3>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+      		</ion-item>
+      </ion-list>
+      
+   
+  
+   
+  </ion-content>
+</ion-view>

@@ -1,0 +1,40 @@
+<ion-view title="Impressum">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right">
+      <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button> 
+    <button class="button button-icon icon ion-ios7-search-strong" ng-click="showsearch()"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="item item-text-wrap"> 
+    <div class="list card">
+        
+          <div class="item item-thumbnail">
+            <img src="http://psicon.de/discountermarken/img/icon.png">
+            <h2>MarkenDetektive Version 2.0a</h2>
+            <p>© 2014 - ASCOMP Software GmbH - makes you mobile</br>Alle Rechte vorbehalten. Reproduktion gleich welcher Form nur mit schriftlicher Genehmigung des Erstellers.</p>
+            <button class="button button-block button-outline button-stable button-icon-left ion-earth" ng-click="openlinkexternal('http://www.markendetektive.de/')" data-lang="de"> Webseite / Kontakt</button>   
+          </div>
+        
+          <div class="item item-thumbnail" ng-controller="AppCtrl">
+            <img src="https://www.ascomp.de/img/logo.png">
+            <h2>Entwickelt von</h2><h2>ASCOMP Software GmbH - makes you mobile</h2>
+            
+ 			<button class="button button-block button-outline button-stable button-icon-left ion-earth" ng-click="openlinkexternal('http://www.ascomp.de/')" data-lang="de"> Webseite / Kontakt</button>          
+            </div>
+        
+          <div class="item icon ion-ios7-information-outline">
+             <h3>Hinweise:</h3>
+            <p>Die Daten in dieser Applikation sind sorgfältig geprüft und recherchiert; dennoch besteht kein Recht auf Vollständigkeit oder Richtigkeit der Daten. Eine Haftung des Erstellers für Personen-, Sach- bzw. Vermögensschäden ist komplett ausgeschlossen. Die in dieser Applikation verwendeten Logos und Bilder sind markenrechtlich geschützt und nicht Eigentum des Erstellers. Eine Zusammenarbeit gleich welcher Art hat es mit den Markeninhabern nicht gegeben. Bilder werden nur zur Illustration des Textes dargestellt. Die Daten sind auf Internetseiten und durch eigene Recherche erhoben.
+Die Daten in dieser App sind nur als Ratschläge anzusehen und sind aus verschiedenen Quellen und Eigenrecherche entnommen. Es kann keine Garantie übernommen werden, dass die hier gemachten Angaben zu 100% stimmen. Die Angaben sind selbständig erhoben und sind für jeden frei zugänglich. Diese App bietet nur die Möglichkeit die Daten an einem zentralen Ort zu melden und abzurufen.
+
+<b>Diese Webseite benutzt Tracking Cookies um die Nutzung der Seite durch Besucher besser zu verstehen und sich über Werbung zu finanzieren.</b> </p>
+          </div>
+        
+     </div>      
+    </div> 
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,113 @@
+<ion-view title="Ergebnisse" animation="reverse">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+   <ion-nav-buttons side="right" id="thetop">
+      <button ng-click="scanbarcode()" class="button button-clear button-icon icon-left ion-ios7-barcode-outline">
+         </button> 
+    <!--<button class="button button-icon icon ion-ios7-more" ng-click="openFilter()"></button>-->
+  </ion-nav-buttons>
+  
+  
+  <ion-tabs class="tabs-balanced tabs-icon-top slide-left-right">
+  		 <ion-content class="has-header">
+
+  
+
+   <ion-tab title="{{many}} Online Preise" icon-on="ion-social-usd" icon-off="ion-social-usd-outline" >
+         <!-- Tab 3 content -->
+  		 <ion-content class="has-header" >               
+          
+        <!--
+  <div style="text-align:center;" ng-bind-html="myhtml">
+        	<i class="icon-left icon ion-loading-d" style="font-size:24px;" ></i><h3 >Suche in externer Datenbank läuft...</h3> 
+        </div>         -->
+       <div  style="text-align:center;" ng-show="showhtml" ng-bind-html="myhtml">
+ 					{{myhtml}}
+         </div>  
+         
+
+        	         <ion-list ng-show="showzanox" class="list" >      			      
+    <div   ng-show="showzanox" ng-repeat="produkt in produkte.Products | filter:{AffilinetCategoryId:'!49'} | filter:{ShopCategoryPath:'!Vertrag'} | filter:{ShopCategoryPath:'!Bundles'}">
+<ion-item    ng-click="openlinkext('{{produkt.Deeplink1}}','{{produkt.ProductId}}','{{produkt.EAN}}')">           
+<h2 style="margin-right:15pt; white-space: pre-line;">{{produkt.ProductName}}</h2>
+ 
+  <div class="listimagedivonline">
+                 <img ng-show="produkt.Images[0][0].URL != null" ng-click="openlinkext('{{produkt.Deeplink1}}','{{produkt.ProductId}}','{{produkt.EAN}}')" class="produktlistimg" src="{{produkt.Images[0][0].URL}}">
+                 
+                  <img ng-show="produkt.Images[0][0].URL == null" ng-click="openlinkext('{{produkt.Deeplink1}}','{{produkt.ProductId}}','{{produkt.EAN}}')" class="produktlistimg" src="http://www.psicon.de/discountermarken/ionic/img/noimage-b1.jpg">
+        </div>  
+                      <span class="item-icon-right">
+
+<p style="margin-right:15pt; text-align:left;"><b style="color:#b6db49; font-size:18px;">ab {{produkt.PriceInformation.Currency}}</b> <br><i style=" font-size:10px; overflow: hidden; text-overflow: ellipsis;">{{produkt.DescriptionShort}}<br>direkt für {{produkt.PriceInformation.DisplayPrice}} bei:<br><img src="{{produkt.Logos[0].URL}}" style="width:{{produkt.Logos[0].Width}}; height:{{produkt.Logos[0].Height}}; align-content:left; text-align:left;"></img></i></p>
+     
+                        <i class="icon ion-ios7-arrow-right"></i>
+
+                        			 </span>
+<ion-option-button class="button-calm icon ion-ios7-paper-outline" style="vertical-align:middle;"
+                             ng-click="opendetails('{{produkt.ProductId}}','{{produkt.EAN}}')">
+            Details
+          </ion-option-button>
+<ion-option-button class="button-energized icon ion-ios7-plus-outline" style="vertical-align:middle;"
+                             ng-click="addtocart( '{{produkt.ProductName}}' ,'{{produkt.ShopTitle}}','{{produkt.ProductName}}','{{produkt.PriceInformation.DisplayPrice}}')">
+            Liste
+          </ion-option-button>
+          <ion-option-button class="button-positive icon ion-social-facebook-outline" style="vertical-align:middle;"
+                             ng-click="shareonfb('Wahnsinn! Hier finde ich schnell den Preis und die Geheimnisse der Discounter! Willst du, so wie ich, auch mehr über die Markengeheimnisse bei Discountern wissen? Dann lade dir die App MarkenDetektive noch heute aus dem Appstore herunter!','{{produkt.Images[0][0].URL.large}}')">acebook</ion-option-button>
+                           </ion-item>
+   
+      </div >
+      <p style="text-align:center; color:red;"" ng-hide="moreavailable"><b> - Nichts mehr gefunden - </b></p>
+      <p style="text-align:center; color:red;"" ng-hide="someavailable"><b> - Nichts gefunden - </b></p>
+     <hr><hr><b style="text-align:center; color:#F5F5F5;">....</b><br><hr></ion-list>
+       <ion-infinite-scroll
+       ng-show="moreavailable"
+    on-infinite="loadMore()"
+      icon="ion-loading-c"
+    distance="1%">
+  </ion-infinite-scroll>
+      <br><br><br><br>
+      
+      <hr>
+      
+          
+     </ion-content>
+
+  </ion-tab>
+  
+  
+  
+   <ion-tab title="{{Produkte.length}} Detektivprodukte" icon-on="ion-ios7-cart" icon-off="ion-ios7-cart-outline" ng-controller="getProduktebysearchCtrl">
+         <!-- Tab 3 content -->
+  		 <ion-content class="has-header">               
+ 
+          <ion-list class="list">      			      
+		    <ion-item   ng-repeat="Produkt in Produkte"  ng-click="getprodukt({{Produkt.mpEAN}})">
+	           <div class="listimagediv">
+               <img class="produktlistimg" src="http://www.psicon.de/discountermarken/img/discounterprodukte/{{Produkt.dpBild}}">
+               </div>
+              <span class="item-icon-right">
+               	<h3 style="margin-right:15pt; white-space: pre-line;">{{Produkt.dpBeschreibung}}<p style="margin-right:15pt; white-space: pre-line;">({{Produkt.mpBezeichnung}})</p>
+</h3>
+                <i class="icon ion-ios7-arrow-right"></i>
+              </span>
+      		</ion-item>
+      </ion-list>
+      
+   
+     </ion-content>
+
+  </ion-tab>
+            <!-- Tab 3 content
+
+   <ion-tab title="ebay Angebote" icon-on="ion-ios7-help" icon-off="ion-ios7-help-outline">
+  		 <ion-content class="has-header">               
+           <div class="list card" ng-controller="getebayProdukte">
+
+			</div>
+    </ion-tab>
+    -->
+  </ion-tabs>
+</ion-view>
+
+
